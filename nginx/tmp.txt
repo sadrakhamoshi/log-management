@@ -1,0 +1,12 @@
+module(load="omprog")
+
+template(name="msg" type="list") {
+    constant(value="Syslog MSG is: '")
+    property(name="msg")
+    }
+
+if $programname == "nginx" then {
+
+ action(type="omprog" binary="/usr/local/bin/python3 /manager/alert_manager.py")
+
+}

@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  web:
+    build: .
+    command: python main.py
+    expose:
+      - 8888
+
+  nginx:
+    build: ./nginx
+    depends_on:
+      - web
+    expose:
+      - 80
+    ports:
+      - 80:80
+
+    
